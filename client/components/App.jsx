@@ -1,37 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { getGreeting } from '../apiClient'
+import React from 'react'
+import request from 'superagent'
+import { getBook } from '../apiClient'
+import BookSearch from './BookSearch'
 
-const App = () => {
-  const [greeting, setGreeting] = useState('')
-  const [count, setCount] = useState(0)
-  const [isError, setIsError] = useState(false)
 
-  useEffect(() => {
-    getGreeting()
-      .then((greeting) => {
-        console.log(greeting)
-        setGreeting(greeting)
-        setIsError(false)
-        return null
-      })
-      .catch((err) => {
-        console.log(err)
-        setIsError(true)
-      })
-  }, [count])
-
+function App() {
   return (
-    <>
-      {count}
-      <h1>{greeting}</h1>
-      {isError && (
-        <p style={{ color: 'red' }}>
-          There was an error retrieving the greeting.
-        </p>
-      )}
-      <button onClick={() => setCount(count + 1)}>Click</button>
-    </>
+    <main>
+      <h1>{"grab some books"}</h1>
+      <h2>{"Today, we're going to look at books ϞϞ(๑⚈ ․̫ ⚈๑)∩"}</h2>
+      <BookSearch/>
+    </main>
   )
 }
+
 
 export default App
