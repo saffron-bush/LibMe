@@ -1,9 +1,12 @@
-import request from 'superagent'
+import request, { search } from 'superagent'
 import React, { useState, useEffect } from 'react'
 import { GetBook } from '../apiClient'
+import AddToReadingList from './AddToReadingList'
+
+const FavComponent = AddToReadingList
 
 function BookSearch() {
-  const [bookData, setBookData] = useState(null)
+  const [bookData, setBookData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [input, setInput] = useState('')
   const [searchTerm, setSearchTerm] = useState([])
@@ -11,9 +14,9 @@ function BookSearch() {
 
   useEffect(() => {
     setIsLoading(true)
-    GetBook()
-      .then((response) => {
-        setBookData(response.docs)
+    GetBook(searchTerm.stringify)
+      .then((bookData) => {
+        setBookData(bookData.docs)
         setIsError(false)
       })
       .finally(() => {
@@ -34,31 +37,30 @@ function BookSearch() {
     setSearchTerm(input)
   }
 
-  console.log(bookData)
-
+  console.log()
 
   if (isLoading) return <h1>one moment...</h1>
   if (isError) return <h1>Can't get Book</h1>
   return (
-    <div>
+    <div className = 'booksSearch'>
       <>
         <form>
+          <label>Enter Book Title:
           <input  type="text" 
                   name="input" 
                   index="input" 
                   onChange={handleChange} />
           <button onClick={handleSubmit}>Search</button>
+          </label>
         </form>
       </>
-      <h2>{bookData.title}</h2>
+      <div></div>
       <ul>
         {bookData.map((item, index) => {
-           return <li key={index}>
-            <h4>{item.title} - {item.author_name}</h4>
-            </li>
+         return ( <li key={index}><h4>{item.title} - {item.author_name}, <FavComponent/></h4></li>)
         })}
       </ul>
-    </div>
+     </div>
   )
 }
 export default BookSearch

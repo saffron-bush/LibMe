@@ -1,0 +1,36 @@
+body {
+  background: rgb(248, 240, 248);
+  color:black; 
+  font-family: 'Space Mono', monospace;
+}
+
+h1 {
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.banner{
+  width: 100%;
+  display:block;
+  padding-bottom: 150px;
+}
+
+.banner > .banner-image {
+  width: 100%;
+  display:block;
+  object-fit: cover;
+  position: absolute;
+  clip: rect(0,2933px,150px,0)
+}
+
+.button {
+  border: 2px solid #76b9f0;
+  margin: none;
+  font-family: 'Be Vietnam Pro', 'sans-serif';
+  border-radius: 30px; 
+  transform: scale(1.1);
+}
+
+.heart {
+  color: #b1a6d5
+}
+

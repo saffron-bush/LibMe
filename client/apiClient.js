@@ -1,5 +1,6 @@
 import request from 'superagent'
 
+//const searchTerm = `http://openlibrary.org/search.json?title=`({searchTerm})
 // export function getBook() {
 //   return request.get('/greeting').then((res) => res.body.greeting)
 // }
