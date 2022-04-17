@@ -22,3 +22,6 @@ export function GetBook(searchTerm) {
 // export function GetCover(index.isbn) {
 //   return request.get(`https://covers.openlibrary.org/b/isbn/${index.isbn[0]+}-M.jpg`).then((response) => response.body)
 //  }
+
+
+//`https://openlibrary.org/books/{item.author_key}+{item.title}`

@@ -34,7 +34,6 @@ function BookSearch() {
 
   function handleSubmit(evt) {
     evt.preventDefault()
-    //GetBook(input)
     setSearchTerm(input)
   }
 
@@ -54,10 +53,10 @@ function BookSearch() {
           </label>
         </form>
       </>
-      <div></div>
       <ul>
         {bookData.map((item, index) => {
-         return ( <li key={index}><h4>{item.title} - {item.author_name[0]} <FavComponent/></h4></li>) 
+         return ( <li key={index}><h4>{item.title} - {item.author_name[0]} <FavComponent/></h4>
+         </li>) 
         })}
       </ul>
      </div>
