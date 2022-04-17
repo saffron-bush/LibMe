@@ -19,6 +19,6 @@ export function GetBook(searchTerm) {
 // }
 
 
-export function GetCover(_searchCover_) {
-  return request.get(`https://www.archive.org/details/m${_searchCover_}`).then((response) => response.body)
- }
+// export function GetCover(index.isbn) {
+//   return request.get(`https://covers.openlibrary.org/b/isbn/${index.isbn[0]+}-M.jpg`).then((response) => response.body)
+//  }

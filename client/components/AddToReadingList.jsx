@@ -5,11 +5,12 @@ import { GetBook } from '../apiClient'
 function AddToReadingList () {
 return (
   <>
-    <button>
+    <button> 
       <div className="button">
         <span>
           <FaHeart className="heart" /> Add to Reading List
         </span>
+
       </div>
     </button>
   </>

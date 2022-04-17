@@ -9,14 +9,15 @@ function BookSearch() {
   const [bookData, setBookData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [input, setInput] = useState('')
-  const [searchTerm, setSearchTerm] = useState([])
+  const [searchTerm, setSearchTerm] = useState('ABC')
   const [isError, setIsError] = useState('')
 
   useEffect(() => {
     setIsLoading(true)
-    GetBook(searchTerm.stringify)
+    GetBook(searchTerm)
       .then((bookData) => {
         setBookData(bookData.docs)
+        console.log(bookData.docs)
         setIsError(false)
       })
       .finally(() => {
@@ -37,10 +38,9 @@ function BookSearch() {
     setSearchTerm(input)
   }
 
-  console.log()
-
   if (isLoading) return <h1>one moment...</h1>
   if (isError) return <h1>Can't get Book</h1>
+
   return (
     <div className = 'booksSearch'>
       <>
@@ -57,11 +57,12 @@ function BookSearch() {
       <div></div>
       <ul>
         {bookData.map((item, index) => {
-         return ( <li key={index}><h4>{item.title} - {item.author_name}, <FavComponent/></h4></li>)
+         return ( <li key={index}><h4>{item.title} - {item.author_name[0]} <FavComponent/></h4></li>) 
         })}
       </ul>
      </div>
   )
+      
 }
 export default BookSearch
 
